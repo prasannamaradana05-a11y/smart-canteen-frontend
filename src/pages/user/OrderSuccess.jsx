@@ -24,6 +24,11 @@ function OrderSuccess() {
           <div className="success-order-details">
 
             <p>
+              <strong>Token ID:</strong>{" "}
+              {order.tokenId}
+            </p>
+
+            <p>
               <strong>Order ID:</strong>{" "}
               {order._id}
             </p>

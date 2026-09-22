@@ -131,29 +131,35 @@ function MyOrders() {
                 </span>
 
               </div>
-
               <div className="order-card-body">
 
-                <p>
-                  <strong>Items:</strong>{" "}
+  <p>
+    <strong>Token ID:</strong>{" "}
+    {order.tokenId}
+  </p>
 
-                  {order.items.map((item, index) => (
-                    <span key={index}>
-                      {item.name} × {item.quantity}
+  <p>
+    <strong>Items:</strong>{" "}
 
-                      {index < order.items.length - 1
-                        ? ", "
-                        : ""}
-                    </span>
-                  ))}
-                </p>
+    {order.items.map((item, index) => (
+      <span key={index}>
+        {item.name} × {item.quantity}
 
-                <p>
-                  <strong>Total:</strong>{" "}
-                  ₹{order.totalAmount}
-                </p>
+        {index < order.items.length - 1
+          ? ", "
+          : ""}
+      </span>
+    ))}
+  </p>
 
-              </div>
+  <p>
+    <strong>Total:</strong>{" "}
+    ₹{order.totalAmount}
+  </p>
+
+</div>
+
+             
 
               <div className="order-card-actions">
 

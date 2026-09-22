@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://smart-canteen-backend-ex13.onrender.com/api";
+const API_BASE_URL = "https://smart-canteen-backend-mu.vercel.app/api";
 
 export const api = {
   get: async (endpoint) => {
