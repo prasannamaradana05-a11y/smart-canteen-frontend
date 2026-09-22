@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { api } from "../../services/api"
 
 function ManageOrders() {
   const navigate = useNavigate()
@@ -14,13 +15,10 @@ function ManageOrders() {
 
   const loadOrders = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/admin/orders"
-      )
+      const data = await api.get("/admin/orders")
+console.log("Admin orders:", data)
 
-      const data = await response.json()
-
-      console.log("Admin orders:", data)
+      
 
       if (data.success) {
         setOrders(data.orders)
@@ -38,20 +36,12 @@ function ManageOrders() {
   // Update order status
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/admin/orders/${id}/status`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            status: newStatus
-          })
-        }
-      )
-
-      const data = await response.json()
+      const data = await api.put(
+  `/admin/orders/${id}/status`,
+  {
+    status: newStatus
+  }
+)
 
       console.log("Update status response:", data)
 
